@@ -1,6 +1,6 @@
 # dl-visu
 Script for the Visualization of Deep Learning Progress
-![preview](https://github.com/titus-leistner/dl-visu/blob/master/dl_vis.gif)
+![preview](https://github.com/titus-leistner/dl-visu/blob/master/dl_visu.gif)
 
 # Requirements
 * python3
