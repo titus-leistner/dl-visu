@@ -1,5 +1,8 @@
 # dl-visu
 Script for the Visualization of Deep Learning Progress
+
+Heavily inspired by [Martin Görners TensorFlow Tutorial](https://github.com/GoogleCloudPlatform/tensorflow-without-a-phd/tree/master/tensorflow-mnist-tutorial)
+
 ![preview](https://github.com/titus-leistner/dl-visu/blob/master/dl_visu.gif)
 
 # Requirements
