@@ -4,7 +4,7 @@ Script for the Visualization of Deep Learning Progress
 
 # Requirements
 * python3
-* virtualenv
+* (virtualenv)
 
 # Installation
 For the installation I recommend virtualenv.
