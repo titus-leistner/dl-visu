@@ -23,19 +23,19 @@ class Plot():
     Helper class to plot training progress of neural networks
     """
     def __init__(self):
-        self.loss_train = np.empty([0])
-        self.loss_test = np.empty([0])
+        self.loss_train = np.empty((0,))
+        self.loss_test = np.empty((0,))
 
-        self.perc_w = np.empty([0, 9])
-        self.perc_b = np.empty([0, 9])
+        self.perc_w = np.empty((0, 9))
+        self.perc_b = np.empty((0, 9))
 
-        self.steps = np.empty([0])
+        self.steps = np.empty((0,))
 
         # initialize matplotlib
         plt.rc('axes', axisbelow=True)
         plt.rc('axes', facecolor='lightgray')
 
-        # setup columns
+        # setup subplots
         fig, axes = plt.subplots(ncols=3, figsize=(12, 4))
         self.loss = axes[0]
         self.ws = axes[1]
@@ -72,7 +72,7 @@ class Plot():
         self.loss.set_title('Loss')
         self.loss.grid(linestyle='dotted', color='white')
 
-        self.loss.plot(self.steps, self.loss_train, label='training loss',
+        self.loss.plot(self.steps, self.loss_train, label='train loss',
                        color='red')
         self.loss.plot(self.steps, self.loss_test, label='test loss',
                        color='blue')
@@ -80,7 +80,7 @@ class Plot():
 
     def plot_ws(self):
         """
-        Plot the weights axis
+        Plot the weight axis
         """
         self.ws.clear()
         self.ws.set_title('Weight Distribution')
@@ -92,7 +92,7 @@ class Plot():
 
     def plot_bs(self):
         """
-        Plot the biases axis
+        Plot the bias axis
         """
         self.bs.clear()
         self.bs.set_title('Bias Distribution')
@@ -128,6 +128,9 @@ class Plot():
         plt.tight_layout()
         plt.pause(0.05)
 
+        # additionally save as png
+        #plt.savefig(format(i, '05') + '.png')
+
         # print values
         print('Iteration %i' % (i))
         print('Loss:     train data: %f,    \ttest data: %f' %
@@ -149,7 +152,6 @@ if __name__ == '__main__':
 
         Returns a tuple(loss_train, loss_test, weights, biases)
         """
-
         loss_train = 1.0 / (i + 1) + uniform(-0.01, 0.01)
         loss_test = 1.0 / (i + 1) + 0.0025 * i + uniform(-0.01, 0.01)
         
@@ -161,7 +163,6 @@ if __name__ == '__main__':
 
         return (loss_train, loss_test, weights, biases)
     
-
     # training our fake network
     plot = Plot()
 
