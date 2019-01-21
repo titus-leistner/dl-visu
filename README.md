@@ -40,3 +40,11 @@ for i in range(101):
     # plot the progress
     plot.plot(i, loss_train, loss_test, weights, biases)
 ```
+
+If you are using pytorch, you can extract the weights and biases of your network instance using the following helper function:
+```python
+from dl_visu import Plot, extract_params_pytorch
+
+# extract the parameters from your network instance called 'net'
+weights, biases = extract_params_pytorch(net)
+```
