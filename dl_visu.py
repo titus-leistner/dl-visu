@@ -8,12 +8,10 @@ def extract_params_pytorch(net):
 
     net: pytorch network
     """
-    net = net.cpu()
-
     # extracting weights, biases
-    weights = np.concatenate([p.data.numpy().flatten()
+    weights = np.concatenate([p.cpu().data.numpy().flatten()
         for n, p in net.named_parameters() if 'weight' in n])
-    biases = np.concatenate([p.data.numpy().flatten()
+    biases = np.concatenate([p.cpu().data.numpy().flatten()
         for n, p in net.named_parameters() if 'bias' in n])
 
     return weights, biases
